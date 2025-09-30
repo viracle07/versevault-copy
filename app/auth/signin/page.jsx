@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaGithub } from "react-icons/fa";
@@ -19,20 +20,16 @@ const page = async () => {
           Sign in to your Account
         </h1>
 
-        <form
-          action={async () => {
-            "use server";
-            await signIn("google");
-          }}
-        >
-          <button
+        
+        <button
+        onClick={()=> signIn("google", {redirect: true})}
             type="submit"
             className="border flex items-center justify-center gap-3 border-gray-300 py-3 rounded-full w-full"
           >
             <FcGoogle className="text-2xl" />
             <p>Continue with Google</p>
           </button>
-        </form>
+        
 
         <button className="border flex items-center justify-center gap-3 border-gray-300 py-3 rounded-full w-full">
           <FaGithub className="text-2xl" />
